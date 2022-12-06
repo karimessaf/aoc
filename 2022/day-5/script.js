@@ -1,7 +1,7 @@
 const fs = require('fs')
 const cloneDeep = require('lodash/cloneDeep')
 
-const file = fs.readFileSync(require.resolve('./input.txt'), 'utf-8')
+const file = fs.readFileSync(require.resolve('./input.txt'), 'utf8')
 let [crates, moves] = file.split('\n\n')
 
 // Transform input file's crates into a 2D array e.g. array[0] = ['P', 'G', 'R', 'N']
