@@ -18,7 +18,7 @@ for (const [rowIndex, row] of matrix.entries()) {
   row.map((cell, cellIndex) => {
     if (cellIndex === 0 || cellIndex === row.length - 1) { visibleTreeCount += 1 } // left & right edges
     else {
-      const visibleLeft = row.slice(0, cellIndex).every(x => x < cell) // every stops at 1st false instance
+      const visibleLeft = row.slice(0, cellIndex).every(x => x < cell)
       const visibleRight = row.slice(cellIndex + 1, row.length).every(x => x < cell)
       const visibleUp = transposedMatrix[cellIndex].slice(0, rowIndex).every(x => x < cell)
       const visibleDown = transposedMatrix[cellIndex].slice(rowIndex + 1, row.length).every(x => x < cell)
@@ -31,10 +31,10 @@ console.log('part1Result: ', visibleTreeCount)
 // Part 2
 let scenicScores = cloneDeep(matrix)
 for (const [rowIndex, row] of matrix.entries()) {
-  if (rowIndex === 0 || rowIndex === matrix.length - 1) { row.map((_, cellIndex) => scenicScores[rowIndex][cellIndex] = 0 ); continue } // first & last rows
+  if (rowIndex === 0 || rowIndex === matrix.length - 1) { row.map((_, cellIndex) => scenicScores[rowIndex][cellIndex] = 0 ); continue }
 
   row.map((cell, cellIndex) => {
-    if (cellIndex === 0 || cellIndex === row.length - 1) { scenicScores[rowIndex][cellIndex] = 0 } // left & right edges
+    if (cellIndex === 0 || cellIndex === row.length - 1) { scenicScores[rowIndex][cellIndex] = 0 }
     else {
       let scoreLeft = 0, scoreRight = 0, scoreUp = 0, scoreDown = 0
       /* left  */ row.slice(0, cellIndex).reverse().every(x => { scoreLeft++; return x < cell })
