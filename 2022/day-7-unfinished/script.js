@@ -2,7 +2,7 @@
 
 // Parse file
 const fs = require('fs')
-const file = fs.readFileSync(require.resolve('./input.txt'), 'utf-8')
+const file = fs.readFileSync(require.resolve('./sample.txt'), 'utf-8')
 const array = file.split('\n')
 array.pop()
 
